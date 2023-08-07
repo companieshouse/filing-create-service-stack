@@ -1,0 +1,9 @@
+aws_bucket = "live-eu-west-2.terraform-state.ch.gov.uk"
+remote_state_bucket = "ch-service-live-terraform-state"
+environment = "live"
+deploy_to = "live"
+state_prefix = "env:/live"
+aws_profile = "live-eu-west-2"
+enable_container_insights = true
+
+ec2_key_pair_name = "ch-aws-live"
