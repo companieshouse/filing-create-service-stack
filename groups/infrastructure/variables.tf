@@ -14,24 +14,6 @@ variable "aws_profile" {
   description = "The AWS profile to use for deployment."
 }
 
-# Terraform
-variable "aws_bucket" {
-  type        = string
-  description = "The bucket used to store the current terraform state files"
-}
-variable "remote_state_bucket" {
-  type        = string
-  description = "Alternative bucket used to store the remote state files from ch-service-terraform"
-}
-variable "state_prefix" {
-  type        = string
-  description = "The bucket prefix used with the remote_state_bucket files."
-}
-variable "deploy_to" {
-  type        = string
-  description = "Bucket namespace used with remote_state_bucket and state_prefix."
-}
-
 # EC2
 variable "ec2_key_pair_name" {
   type        = string
