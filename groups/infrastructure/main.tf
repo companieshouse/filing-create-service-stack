@@ -26,8 +26,8 @@ module "ecs-cluster" {
   stack_name                 = local.stack_name
   name_prefix                = local.name_prefix
   environment                = var.environment
-  vpc_id                     = local.vpc_id
-  subnet_ids                 = local.application_ids
+  vpc_id                     = data.aws_vpc.vpc.id
+  subnet_ids                 = local.application_subnet_ids
   ec2_key_pair_name          = var.ec2_key_pair_name
   ec2_instance_type          = var.ec2_instance_type
   ec2_image_id               = var.ec2_image_id
@@ -43,6 +43,6 @@ module "secrets" {
   stack_name  = local.stack_name
   name_prefix = local.name_prefix
   environment = var.environment
-  kms_key_id  = data.terraform_remote_state.services-stack-configs.outputs.services_stack_configs_kms_key_id
-  secrets     = data.vault_generic_secret.secrets.data
+  kms_key_id  = data.aws_kms_key.stack_configs.id
+  secrets     = local.parameter_store_secrets
 }
