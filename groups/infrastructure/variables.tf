@@ -94,5 +94,5 @@ variable "internal_albs" {
 variable "enable_container_insights" {
   type        = bool
   description = "A boolean value indicating whether to enable Container Insights or not"
-  default     = false
+  default     = true
 }
