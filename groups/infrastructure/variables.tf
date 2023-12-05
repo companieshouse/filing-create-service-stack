@@ -13,8 +13,6 @@ variable "aws_profile" {
   type        = string
   description = "The AWS profile to use for deployment."
 }
-
-# Terraform
 # EC2
 variable "ec2_key_pair_name" {
   type        = string
@@ -65,24 +63,6 @@ variable "enable_asg_autoscaling" {
   type        = bool
   description = "Whether to enable auto-scaling of the ASG by creating a capacity provider for the ECS cluster."
 }
-
-# Certificates
-variable "ssl_certificate_id" {
-  type        = string
-  description = "The ARN of the certificate for https access through the ALB."
-}
-
-# DNS
-variable "zone_id" {
-  default     = "" # default of empty string is used as conditional when creating route53 records i.e. if no zone_id provided then no route53
-  type        = string
-  description = "The ID of the hosted zone to contain the Route 53 record."
-}
-variable "external_top_level_domain" {
-  type        = string
-  description = "The type levelel of the DNS domain for external access."
-}
-
 # Networking
 variable "internal_albs" {
   type        = bool
